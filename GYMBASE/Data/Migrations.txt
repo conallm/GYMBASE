@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextTypeName GymbaseContext -MigrationsDirectory Migrations\Gymbase
+
+add-migration -ConfigurationTypeName GYMBASE.Migrations.Gymbase.Configuration "InitialCreate"
+
+update-database -ConfigurationTypeName GYMBASE.Migrations.Gymbase.Configuration
