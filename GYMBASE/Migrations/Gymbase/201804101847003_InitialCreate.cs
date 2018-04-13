@@ -12,7 +12,7 @@ namespace GYMBASE.Migrations.Gymbase
                 c => new
                     {
                         FacilityID = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 30),
                         GymClass_GymClassID = c.Int(),
                     })
                 .PrimaryKey(t => t.FacilityID)
@@ -24,8 +24,8 @@ namespace GYMBASE.Migrations.Gymbase
                 c => new
                     {
                         GymClassID = c.Int(nullable: false, identity: true),
-                        ClassName = c.String(),
-                        Description = c.String(),
+                        ClassName = c.String(nullable: false, maxLength: 30),
+                        Description = c.String(nullable: false, maxLength: 100),
                     })
                 .PrimaryKey(t => t.GymClassID);
             
@@ -34,10 +34,10 @@ namespace GYMBASE.Migrations.Gymbase
                 c => new
                     {
                         TrainerID = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Phone = c.String(),
-                        Email = c.String(),
+                        FirstName = c.String(nullable: false, maxLength: 30),
+                        LastName = c.String(nullable: false, maxLength: 30),
+                        Phone = c.String(nullable: false),
+                        Email = c.String(nullable: false),
                         Salary = c.Int(nullable: false),
                         GymClassID = c.Int(),
                     })
@@ -50,10 +50,10 @@ namespace GYMBASE.Migrations.Gymbase
                 c => new
                     {
                         MemberId = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Phone = c.String(),
-                        Email = c.String(),
+                        FirstName = c.String(nullable: false, maxLength: 30),
+                        LastName = c.String(nullable: false, maxLength: 30),
+                        Phone = c.String(nullable: false),
+                        Email = c.String(nullable: false),
                         Tier = c.Int(nullable: false),
                         GymClassID = c.Int(),
                     })
@@ -64,7 +64,7 @@ namespace GYMBASE.Migrations.Gymbase
                 c => new
                     {
                         TimeslotID = c.Int(nullable: false, identity: true),
-                        Time = c.String(),
+                        Time = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.TimeslotID);
             
